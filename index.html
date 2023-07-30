@@ -1,67 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OregonRP</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
+<!-- Primary Meta Tags -->
+<title>Oregon State Roleplay</title>
+<meta name="title" content="Oregon State Roleplay" />
+<meta name="description" content="OSRP is a high-quality roleplay experience that offers daily sessions, giveaways, events, and so much more. Join us for a realistic and fun roleplaying community." />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://metatags.io" />
+<meta property="og:title" content="Oregon State Roleplay" />
+<meta property="og:description" content="OSRP is a high-quality roleplay experience that offers daily sessions, giveaways, events, and so much more. Join us for a realistic and fun roleplaying community." />
+<meta property="og:image" content="https://i.imgur.com/k9QitAo.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://metatags.io" />
+<meta property="twitter:title" content="Oregon State Roleplay" />
+<meta property="twitter:description" content="OSRP is a high-quality roleplay experience that offers daily sessions, giveaways, events, and so much more. Join us for a realistic and fun roleplaying community." />
+<meta property="twitter:image" content="https://i.imgur.com/k9QitAo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/x-icon">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Use default system fonts */
+  }
+
+  header {
+    text-align: center;
+    background-color: #452f1d; /* New background color for the header */
+    color: #e5b969; /* New text color for the header */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Adjust to a column layout */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+  }
+
+  .logo {
+    text-align: center; /* Center the logo */
+    flex: 1; /* Allow the logo to take available space */
+  }
+
+  .logo img {
+    max-width: 100px;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #452f1d; /* New background color for the navbar */
+    display: flex;
+    justify-content: center;
+  }
+
+  li {
+    margin: 0 10px;
+  }
+
+  li a {
+    display: block;
+    color: #e5b969; /* New text color for the navbar */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #cd3a42; /* New background color on hover for navbar items */
+  }
+
+  li a.active {
+    color: white;
+    background-color: #cd3a42; /* New background color for active navbar item */
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 20px;
+  }
+
+  .hamburger div {
+    width: 100%;
+    height: 4px;
+    background-color: #e5b969; /* New color for the hamburger lines */
+  }
+
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
     }
+
+    .hamburger {
+      display: flex;
+    }
+
     .navbar {
-      background-color: #333;
-      color: #fff;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      order: 2; /* Move the navbar below the hamburger button */
     }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    .navbar li {
-      margin: 0 10px;
-    }
+
     .navbar a {
-      text-decoration: none;
-      color: #fff;
+      border-bottom: 1px solid #e7e7e7; /* New border color for navbar items */
     }
-    @media (max-width: 600px) {
-      .navbar {
-        flex-direction: column;
-      }
-      .navbar ul {
-        margin-top: 10px;
-        flex-direction: column;
-      }
-      .navbar li {
-        margin: 5px 0;
-      }
+
+    .navbar.collapsed {
+      display: none;
     }
-  </style>
+
+    .navbar.collapsed a {
+      display: none;
+    }
+  }
+
+  .footer {
+    background-color: #452f1d; /* New background color for the footer */
+    color: #e5b969; /* New text color for the footer */
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .server-info {
+    padding: 20px;
+    background-color: #e5b969; /* New background color for the server info section */
+    color: #452f1d; /* New text color for the server info section */
+    text-align: center; /* Center the content in the server info section */
+    max-width: 800px; /* Limit the maximum width of the server info section */
+    margin: 0 auto; /* Center the server info section horizontally */
+  }
+
+  .server-info h2 {
+    color: #cd3a42; /* New color for the h2 headings in server info section */
+  }
+
+  .server-info p {
+    line-height: 1.6;
+  }
+</style>
 </head>
 <body>
-  <div class="navbar">
-    <div class="logo">OregonRP</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Rules</a></li>
-      <li><a href="#">Forums</a></li>
-      <!-- Add more navigation links as needed -->
-    </ul>
-  </div>
 
-  <!-- Your homepage content goes here -->
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="OregonRP Logo">
+  </div>
+  <h1>Oregon State Roleplay</h1> <!-- Site name with new text color -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+<ul class="navbar">
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="socials.html">Socials</a></li>
+  <li><a href="https://discord.gg/oregonrp">Discord</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+<div class="server-info">
+  <h2>OSRP - Oregon State Roleplay</h2>
+  <p>
+    OSRP is a high-quality roleplay experience that offers daily sessions, giveaways, events, and so much more. Here we make sure your roleplay is realistic and fun by enforcing fair guidelines in our community. We hope you have an amazing experience here at OSRP.
+  </p>
+  <h3>Server Details:</h3>
+  <ul>
+    <li>Owner - NotBlackout001#3531</li>
+    <li>Name - Oregon State Roleplay</li>
+    <li>Creation Date - 7/11/23</li>
+    <li>Release Date - 7/11/23</li>
+    <li>Code - Ostate</li>
+  </ul>
+</div>
+
+<footer class="footer">
+  &copy; 2023 Oregon State Roleplay. All rights reserved. | Contact: contact@oregonrp.com
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.querySelector('ul');
+    menu.classList.toggle('collapsed');
+  }
+
+  // Close the menu if a menu item is clicked
+  const menuItems = document.querySelectorAll('li');
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const menu = document.querySelector('ul');
+      menu.classList.remove('collapsed');
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -20,89 +20,69 @@
 <meta property="twitter:description" content="OSRP is a high-quality roleplay experience that offers daily sessions, giveaways, events, and so much more. Join us for a realistic and fun roleplaying community." />
 <meta property="twitter:image" content="https://i.imgur.com/k9QitAo.png" />
 
-  <style>
+<style>
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, sans-serif; /* Use default system fonts */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
+  
     header {
       text-align: center;
-      background-color: #452f1d;
-      color: #e5b969;
+      background: linear-gradient(45deg, #e68a00, #e5b969); /* Gradient background with orange */
+      color: #452f1d; /* New text color for the header */
       padding: 20px;
+      display: flex;
+      flex-direction: column; /* Adjust to a column layout */
+      justify-content: center; /* Center the content horizontally */
+      align-items: center;
     }
-
-    h1 {
-      margin: 0;
+  
+    .logo {
+      text-align: center; /* Center the logo */
+      flex: 1; /* Allow the logo to take available space */
     }
-
+  
     .logo img {
       max-width: 100px;
       height: auto;
       vertical-align: middle;
     }
-
+  
     ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-color: #452f1d;
+      background-color: #452f1d; /* New background color for the navbar */
       display: flex;
       justify-content: center;
     }
-
+  
     li {
       margin: 0 10px;
     }
-
+  
     li a {
       display: block;
-      color: #e5b969;
+      color: #e5b969; /* New text color for the navbar */
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
     }
-
+  
     li a:hover:not(.active) {
-      background-color: #cd3a42;
+      background-color: #cd3a42; /* New background color on hover for navbar items */
     }
-
+  
     li a.active {
       color: white;
-      background-color: #cd3a42;
+      background-color: #cd3a42; /* New background color for active navbar item */
     }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-      flex: 1;
-    }
-
-    .social-link {
-      text-align: center;
-      margin: 10px;
-      flex: 1 0 200px;
-    }
-
-    .social-link a {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      background-color: #cd3a42;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
+  
     .hamburger {
       display: none;
       cursor: pointer;
@@ -111,63 +91,69 @@
       width: 30px;
       height: 20px;
     }
-
+  
     .hamburger div {
       width: 100%;
       height: 4px;
-      background-color: #e5b969;
+      background-color: #e5b969; /* New color for the hamburger lines */
     }
-
+  
     @media (max-width: 600px) {
       header {
-        padding: 10px;
-      }
-
-      .social-links {
         flex-direction: column;
-        align-items: center;
       }
-
-      .social-link {
-        margin: 5px;
-        flex: 1 0 250px;
-      }
-
+  
       .hamburger {
         display: flex;
       }
-
-      ul {
+  
+      .navbar {
+        order: 2; /* Move the navbar below the hamburger button */
+      }
+  
+      .navbar a {
+        border-bottom: 1px solid #e7e7e7; /* New border color for navbar items */
+      }
+  
+      .navbar.collapsed {
         display: none;
       }
-
-      ul.collapsed {
-        display: flex;
-        flex-direction: column;
-      }
-
-      li {
-        text-align: center;
-        margin: 10px 0;
+  
+      .navbar.collapsed a {
+        display: none;
       }
     }
-
+  
     .footer {
-      background-color: #452f1d;
-      color: #e5b969;
+      background-color: #452f1d; /* New background color for the footer */
+      color: #e5b969; /* New text color for the footer */
       text-align: center;
       padding: 10px;
-      margin-top: auto; /* Push the footer to the bottom of the page */
     }
-
-    .twitter-container {
+  
+    .server-info {
+      padding: 20px;
+      background-color: #e5b969; /* New background color for the server info section */
+      color: #452f1d; /* New text color for the server info section */
+      text-align: center; /* Center the content in the server info section */
+      max-width: 800px; /* Limit the maximum width of the server info section */
+      margin: 0 auto; /* Center the server info section horizontally */
+    }
+  
+    .server-info h2 {
+      color: #cd3a42; /* New color for the h2 headings in server info section */
+    }
+  
+    .server-info p {
+      line-height: 1.6;
+    }
+  
+    .social-links {
       display: flex;
       justify-content: center;
-      margin: 20px 0;
-    }
-
-    .twitter-timeline {
-      width: 350px;
+      flex-wrap: wrap;
+      flex: 1; /* Allow the social-links container to take the remaining space */
+      padding-bottom: 50px; /* Create space for the footer */
     }
 
     .button-container {
@@ -177,63 +163,73 @@
     }
 
     .button {
-      margin: 5px;
+      display: inline-block;
       padding: 10px 20px;
-      background-color: #cd3a42;
-      color: white;
+      background-color: #cd3a42; /* New background color for buttons */
+      color: white; /* New text color for button text */
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #e68a00; /* New background color on hover for buttons */
+    }
+
+    /* Adjust styles for smaller screens */
+    @media (max-width: 600px) {
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .button {
+        margin: 5px;
+      }
+
+      /* ... Your existing media query styles ... */
     }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <img src="logo.png" alt="OregonRP Logo">
-  </div>
-  <h1>Oregon State Roleplay</h1>
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <nav>
-    <ul class="collapsed">
-      <li><a href="index.html">Home</a></li>
-      <li><a class="active" href="socials.html">Socials</a></li>
-      <li><a href="https://discord.gg/oregonrp">Discord</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
-</header>
-
-<div class="social-links">
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="OregonRP Logo">
+    </div>
+    <h1>Oregon State Roleplay</h1>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+  <ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a class="active" href="socials.html">Socials</a></li>
+    <li><a href="https://discord.gg/oregonrp">Discord</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="social-links">
     <div class="button-container">
-        <a class="button" href="https://www.youtube.com/@osrp2023" target="_blank">OSRP Youtube</a>
-      </div>
+      <a class="button" href="https://www.youtube.com/@osrp2023" target="_blank">OSRP Youtube</a>
+    </div>
     <div class="twitter-container">
       <a class="twitter-timeline" data-width="350" data-dnt="true" href="https://twitter.com/osrp1234567890?ref_src=twsrc%5Etfw">Tweets by osrp1234567890</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
-
-
-  <div class="button-container">
-    <a class="button" href="https://www.tiktok.com/@notblackout001" target="_blank">OSRP Tiktok</a>
+    <div class="button-container">
+      <a class="button" href="https://www.tiktok.com/@notblackout001" target="_blank">OSRP Tiktok</a>
+    </div>
   </div>
-</div>
+  <footer class="footer">
+    &copy; 2023 Oregon State Roleplay. All rights reserved. | Contact: contact@osrp.com
+  </footer>
 
-<footer class="footer">
-  &copy; 2023 Oregon State Roleplay. All rights reserved. | Contact: contact@osrp.com
-</footer>
-
-<script>
-  function toggleMenu() {
-    const menu = document.querySelector('ul');
-    menu.classList.toggle('collapsed');
-  }
-</script>
-
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('ul');
+      menu.classList.toggle('collapsed');
+    }
+  </script>
 </body>
 </html>
